@@ -1,4 +1,4 @@
-package com.eric.entity;
+package com.eric.mybatis.entity;
 
 import lombok.Getter;
 import lombok.Setter;

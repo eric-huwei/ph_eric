@@ -1,7 +1,7 @@
-package com.eric.service;
+package com.eric.mybatis.service;
 
-import com.eric.entity.User;
-import com.eric.mapper.UserMapper;
+import com.eric.mybatis.entity.User;
+import com.eric.mybatis.mapper.UserMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

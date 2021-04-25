@@ -1,6 +1,6 @@
-package com.eric.mapper;
+package com.eric.mybatis.mapper;
 
-import com.eric.entity.User;
+import com.eric.mybatis.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
