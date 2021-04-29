@@ -1,4 +1,4 @@
-package com.eric.config;
+package com.eric.aop;
 
 
 import org.aspectj.lang.ProceedingJoinPoint;
