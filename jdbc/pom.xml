@@ -12,4 +12,10 @@
     <artifactId>jdbc</artifactId>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+        </dependency>
+    </dependencies>
 </project>
