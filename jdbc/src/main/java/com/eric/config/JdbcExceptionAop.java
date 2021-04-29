@@ -40,7 +40,7 @@ public class JdbcExceptionAop {
             long end = System.nanoTime();
 
             Logger.getGlobal().info("当前sqlId:"+joinPoint.getSignature().getName()+
-                    ",参数:"+ Arrays.toString(joinPoint.getArgs()) +" 执行耗时:"+(end - begin) / 1000000+"ms");
+                    ",参数:"+ Arrays.toString(joinPoint.getArgs()) +",执行耗时:"+(end - begin) / 1000000+"ms");
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
