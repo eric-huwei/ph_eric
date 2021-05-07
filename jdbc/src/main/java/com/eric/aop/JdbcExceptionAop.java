@@ -35,12 +35,12 @@ public class JdbcExceptionAop {
     public Object around(ProceedingJoinPoint joinPoint) {
         Object result = null;
         try {
-            long begin = System.nanoTime();
+            long begin = System.currentTimeMillis();
             result = joinPoint.proceed();
-            long end = System.nanoTime();
+            long end = System.currentTimeMillis();
 
-            Logger.getGlobal().info("当前sqlId:"+joinPoint.getSignature().getName()+
-                    ",参数:"+ Arrays.toString(joinPoint.getArgs()) +",执行耗时:"+(end - begin) / 1000000+"ms");
+            Logger.getGlobal().info("当前sqlId:"+joinPoint.getSignature().toShortString()+
+                    ",参数:"+ Arrays.toString(joinPoint.getArgs()) +",执行耗时:"+(end - begin)+"ms");
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
