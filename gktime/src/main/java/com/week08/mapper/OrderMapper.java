@@ -12,6 +12,6 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface OrderMapper {
 
-    Order getOrderInfo(@Param("orderId") int orderId);
+    Order getOrderInfo(@Param("orderId") int orderId, @Param("userId") int userId);
 
 }

@@ -22,6 +22,6 @@ public class ShardingSphereTest {
 
     @Test
     public void testShardingSphere() {
-        orderMapper.getOrderInfo(1);
+        orderMapper.getOrderInfo(1, 1991);
     }
 }
