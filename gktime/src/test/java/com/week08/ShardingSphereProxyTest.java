@@ -15,7 +15,7 @@ import javax.annotation.Resource;
  */
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class ShardingSphereTest {
+public class ShardingSphereProxyTest {
 
     @Resource
     OrderMapper orderMapper;
