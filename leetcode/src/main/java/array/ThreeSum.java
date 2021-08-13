@@ -1,8 +1,6 @@
 package array;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @DESCIRPTION THREE SUM
@@ -39,5 +37,10 @@ public class ThreeSum {
     public static void main(String[] args) {
         int[] nums = {-1,0,1,2,-1,-4};
         System.out.println(threeSum(nums));
+    }
+
+    private static List<List<Integer>> threeSumTest(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        return res;
     }
 }

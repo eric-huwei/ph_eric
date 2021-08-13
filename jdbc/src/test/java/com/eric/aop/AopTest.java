@@ -1,11 +1,8 @@
 package com.eric.aop;
 
 import com.eric.mybatis.entity.User;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ApplicationContext;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @DESCIRPTION
