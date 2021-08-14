@@ -87,12 +87,12 @@ public class RpcfxServerApplication {
 	// annotation
 
 
-	@Bean(name = "io.kimmking.rpcfx.demo.api.UserService")
+	@Bean(name = "io.eric.api.UserService")
 	public UserService createUserService(){
 		return new UserServiceImpl();
 	}
 
-	@Bean(name = "io.kimmking.rpcfx.demo.api.OrderService")
+	@Bean(name = "io.eric.api.OrderService")
 	public OrderService createOrderService(){
 		return new OrderServiceImpl();
 	}
