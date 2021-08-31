@@ -4,8 +4,6 @@ import io.eric.api.RpcfxRequest;
 import io.eric.api.RpcfxResolver;
 import io.eric.api.RpcfxResponse;
 import io.eric.api.ServiceProviderDesc;
-import io.eric.api.OrderService;
-import io.eric.api.UserService;
 import io.eric.server.RpcfxInvoker;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.zookeeper.CreateMode;
@@ -25,20 +23,18 @@ public class RpcfxServerApplication {
 
 	public static void main(String[] args) throws Exception {
 
-//		// start zk client
-//		RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
-//		CuratorFramework client = CuratorFrameworkFactory.builder().connectString("localhost:2181").namespace("rpcfx").retryPolicy(retryPolicy).build();
-//		client.start();
-//
-//
-//		// register service
-//		// xxx "io.kimmking.rpcfx.demo.api.UserService"
-//
-//		String userService = "io.kimking.rpcfx.demo.api.UserService";
-//		registerService(client, userService);
-//		String orderService = "io.kimking.rpcfx.demo.api.OrderService";
-//		registerService(client, orderService);
+		/*start zk client
+		RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
+		CuratorFramework client = CuratorFrameworkFactory.builder().connectString("localhost:2181").namespace("rpcfx").retryPolicy(retryPolicy).build();
+		client.start();
 
+		register service
+		xxx "io.kimmking.rpcfx.demo.api.UserService"
+
+		String userService = "io.kimking.rpcfx.demo.api.UserService";
+		registerService(client, userService);
+		String orderService = "io.kimking.rpcfx.demo.api.OrderService";
+		registerService(client, orderService);*/
 
 		// 进一步的优化，是在spring加载完成后，从里面拿到特定注解的bean，自动注册到zk
 
@@ -79,22 +75,6 @@ public class RpcfxServerApplication {
 	@Bean
 	public RpcfxResolver createResolver(){
 		return new DemoResolver();
-	}
-
-	// 能否去掉name
-	//
-
-	// annotation
-
-
-	@Bean(name = "io.eric.api.UserService")
-	public UserService createUserService(){
-		return new UserServiceImpl();
-	}
-
-	@Bean(name = "io.eric.api.OrderService")
-	public OrderService createOrderService(){
-		return new OrderServiceImpl();
 	}
 
 }
