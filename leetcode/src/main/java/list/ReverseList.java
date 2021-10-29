@@ -22,12 +22,9 @@ public class ReverseList {
     }
 
     public static void main(String[] args) {
-        ListNode head = new ListNode(0);
-        ListNode curr = head;
-        for (int i = 1; i < 5; i++) {
-            curr.next = new ListNode(i);
-            curr = curr.next;
-        }
+        ListNode head = new ListNode(0, null);
+        int[] arrs = new int[]{1,2,3,4};
+        NodeUtil.createNode(head, arrs, 0);
 
         System.out.println(reverseList(head).val == 4);
     }
