@@ -16,6 +16,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class Order implements Serializable {
 
+    /**
+     * ssh test
+     */
     private int id;
     private String name;
     private float amout;
