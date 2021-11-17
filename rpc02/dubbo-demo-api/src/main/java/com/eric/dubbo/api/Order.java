@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 /**
  * @DESCIRPTION
  * @AUTHOR SCORPIO.HU
@@ -12,7 +14,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @AllArgsConstructor
-public class Order {
+public class Order implements Serializable {
 
     private int id;
     private String name;
