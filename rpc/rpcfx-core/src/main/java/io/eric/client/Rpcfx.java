@@ -19,7 +19,7 @@ import java.util.List;
 public final class Rpcfx {
 
     static {
-        ParserConfig.getGlobalInstance().addAccept("io.eric");
+        ParserConfig.getGlobalInstance().addAccept("io.com.eric");
     }
 
     public static <T, filters> T createFromRegistry(final Class<T> serviceClass, final String zkUrl, Router router, LoadBalancer loadBalance, Filter filter) {

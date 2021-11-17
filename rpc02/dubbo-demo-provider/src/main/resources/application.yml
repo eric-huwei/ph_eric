@@ -7,7 +7,7 @@ spring:
 
 dubbo:
   scan:
-    base-packages: com.eric.dubbo.provider
+    base-packages: com.com.eric.dubbo.provider
   protocol:
     name: dubbo
     port: 12345

@@ -4,7 +4,7 @@ import io.eric.api.User;
 import io.eric.api.UserService;
 import org.springframework.stereotype.Service;
 
-@Service("io.eric.api.UserService")
+@Service("io.com.eric.api.UserService")
 public class UserServiceImpl implements UserService {
 
     @Override

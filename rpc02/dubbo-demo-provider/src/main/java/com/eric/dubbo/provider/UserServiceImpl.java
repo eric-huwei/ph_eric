@@ -13,6 +13,6 @@ import org.apache.dubbo.config.annotation.DubboService;
 public class UserServiceImpl implements UserService {
     @Override
     public User finById(int id) {
-        return new User(id, "eric " + System.currentTimeMillis());
+        return new User(id, "com.eric " + System.currentTimeMillis());
     }
 }

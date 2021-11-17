@@ -4,7 +4,7 @@
 ## 简介
 &ensp;&ensp;&ensp;&ensp;一个 RPC 框架 Demo 的简单实现(业务场景中还没用过RPC，但Dome应该还是有那个意思的)
 
-&ensp;&ensp;&ensp;&ensp;*完整的项目工程地址：[RPC](https://github.com/eric-huwei/ph_eric/tree/master/rpc)*
+&ensp;&ensp;&ensp;&ensp;*完整的项目工程地址：[RPC](https://github.com/com.eric-huwei/ph_eric/tree/master/rpc)*
 
 ### 工程运行说明
 - 服务端启动：rpcfx-demo-server：ServerApplication

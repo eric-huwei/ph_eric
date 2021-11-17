@@ -35,7 +35,7 @@ public class PriorityQueueExec {
         Random random = new Random();
         for (int i = 0; i < 8; i++) {
             int id = random.nextInt(100);
-            objPriority.add(new Consumer(id, "eric " + id));
+            objPriority.add(new Consumer(id, "com.eric " + id));
         }
         System.out.println(objPriority);
 

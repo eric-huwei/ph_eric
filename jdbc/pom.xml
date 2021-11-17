@@ -10,7 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.eric</groupId>
+    <groupId>com.com.eric</groupId>
     <artifactId>jdbc</artifactId>
     <version>2.4.5</version>
     <name>jdbc</name>
@@ -19,6 +19,8 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
     <dependencies>

@@ -4,7 +4,7 @@ import io.eric.api.Order;
 import io.eric.api.OrderService;
 import org.springframework.stereotype.Service;
 
-@Service("io.eric.api.OrderService")
+@Service("io.com.eric.api.OrderService")
 public class OrderServiceImpl implements OrderService {
 
     @Override
