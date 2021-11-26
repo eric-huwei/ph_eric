@@ -11,6 +11,6 @@ dubbo:
   scan:
     base-packages: com.eric.dubbo.consumer
   registry:
-    address: zookeeper://172.16.210.141:2181,172.16.210.142:2181,172.16.210.143:2181
+    address: zookeeper://172.16.210.151:2181,172.16.210.152:2181,172.16.210.153:2181
   metadata-report:
-    address: zookeeper://172.16.210.141:2181,172.16.210.142:2181,172.16.210.143:2181
+    address: zookeeper://172.16.210.151:2181,172.16.210.152:2181,172.16.210.153:2181
