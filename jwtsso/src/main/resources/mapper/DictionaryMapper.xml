@@ -9,7 +9,7 @@
 
     <select id="getDictionary" resultMap="DictionaryResultMap">
         SELECT TYPE_ID "typeId", TYPE_NAME "typeName", PARENT_TYPE "parentType"
-          FROM CIS_DICTIONARY
+          FROM TEST_DICTIONARY
          WHERE TYPE_ID = #{typeId}#
     </select>
 </mapper>
