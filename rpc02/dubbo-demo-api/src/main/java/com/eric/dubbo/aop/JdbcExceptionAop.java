@@ -1,18 +1,18 @@
-package com.eric.aop;
+package com.eric.dubbo.aop;
 
 
-import org.aspectj.lang.ProceedingJoinPoint;
+/*import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/**
+*//**
  * @DESCIRPTION JDBC AOP
  * @AUTHOR SCORPIO.HU
  * @DATE 2021/4/29 上午10:31
- */
+ *//*
 @Aspect
 @Component
 public class JdbcExceptionAop {
@@ -46,4 +46,4 @@ public class JdbcExceptionAop {
         }
         return result;
     }
-}
+}*/
