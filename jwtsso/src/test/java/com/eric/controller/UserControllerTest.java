@@ -1,8 +1,6 @@
 package com.eric.controller;
 
-import com.eric.entity.User;
-import com.eric.service.UserService;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,13 +13,13 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 @SpringBootTest
 @RunWith(SpringRunner.class)
-class UserControllerTest {
+public class UserControllerTest {
 
     @Autowired
     UserService userService;
 
     @Test
-    void addUser() {
+    public void addUser() {
         User user = new User();
         user.setFirstName("Hu");
         user.setLastName("Eric");
