@@ -4,7 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * @DESCIRPTION
+ * @DESCIRPTION  SPRING IOC 反射+工厂
  * @AUTHOR SCORPIO.HU
  * @DATE 2021/12/3 2:08 PM
  */
