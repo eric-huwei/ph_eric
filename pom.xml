@@ -11,7 +11,7 @@
     <modules>
         <module>rpc02</module>
         <module>jwtsso</module>
-        <module>tlspring</module>
+        <module>rpc</module>
     </modules>
 
     <parent>
