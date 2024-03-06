@@ -8,9 +8,18 @@ public class IsPalindrome {
     /**
      * 解法二：双指针
      */
-    public boolean dualPointers() {
-
-        return false;
+    public boolean dualPointers(String str) {
+        str = str.replaceAll("[^0-9a-zA-Z]","").toLowerCase();
+        StringBuffer sbStr = new StringBuffer(str);
+        int left = 0, right = sbStr.length();
+        while (left < right) {
+            if (sbStr.charAt(left) != sbStr.charAt(right)) {
+                return false;
+            }
+            ++left;
+            --right;
+        }
+        return true;
     }
 
     /**
