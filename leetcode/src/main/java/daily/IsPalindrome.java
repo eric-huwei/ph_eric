@@ -6,6 +6,37 @@ package daily;
 public class IsPalindrome {
 
     /**
+     * 优化解法
+     */
+    public boolean isPalindrome (String str) {
+        if (str.length() == 0) {
+            return true;
+        }
+        str = str.toLowerCase();
+        int left = 0, right = str.length() - 1;
+        while (left < right) {
+            if (!isLetterOrNumber(str.charAt(left))) {
+                left++;
+                continue;
+            }
+            if (!isLetterOrNumber(str.charAt(right))) {
+                right--;
+                continue;
+            }
+            if (str.charAt(left) != str.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+    boolean isLetterOrNumber(char c){
+        return (c >= 'a' && c <= 'z') || (c>='0' && c<='9');
+    }
+
+    /**
      * 解法二：双指针
      */
     public boolean dualPointers(String str) {
