@@ -17,6 +17,7 @@ public class DictionaryService {
     DictionaryMapper dictionaryMapper;
 
     public Dictionary getDictionary(String typeId) {
-        return dictionaryMapper.getDictionary(typeId);
+        return Dictionary.builder().id(1).typeName("test").build();
+//        return dictionaryMapper.getDictionary(typeId);
     }
 }

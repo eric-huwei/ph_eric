@@ -13,7 +13,7 @@ import java.util.Date;
  */
 @Data
 @Entity
-@Table(schema = "ph_eric", name = "sso_sys_user")
+//@Table(schema = "ph_eric", name = "sso_sys_user")
 public class SysUser implements Serializable {
 
     private static final long serialVersionUID = 5872438942257394882L;

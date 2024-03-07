@@ -3,6 +3,7 @@ package com.eric.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 
@@ -15,7 +16,8 @@ import javax.persistence.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(schema = "ph_eric", name = "test_dictionary")
+//@Table(schema = "ph_eric", name = "test_dictionary")
+@SuperBuilder
 public class Dictionary {
 
     @Id
