@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+
+    <!--属性配置 -->
+    <springProperty scope="context" name="logger.level" source="logging.level" defaultValue="info"></springProperty>
+    <springProperty scope="context" name="logger.path" source="logging.path" defaultValue="/wls/applogs/rtlog"></springProperty>
+    <springProperty scope="context" name="file.retain.day" source="logging.file.retain.day" defaultValue="3"></springProperty>
+    <springproperty scope="context" name="file.max.size" source="logging.file.max.size" defaultvalue="512"></springproperty>
+    <springProperty scope="context" name="logger.application.name" source="spring.application.name" defaultValue="spring"></springProperty>
+
+    <springProperty scope="context" name="leogger.pattern.consol" source="logging.pattern.console" defaultValue="%date{ISO8601} [%level] [${logger.aplication.name:-}] [%X{PtxId},%X{PspanId}] [%X{Corp:-}] %X{CatId:-} %X{Rfield:-} --- [%thread] %logger(80): %msg%n"></springProperty>
+
+    <springProperty scope="context" name="logger.pattern.file" source="logging.pattern.file" defaultValue="%date{ISO8601} [%level] [${logger.aplication.name:-}] [%X{PtxId},%X{PspanId}] [%X{Corp:-}] %X{CatId:-} %X{Rfield:-} --- [%thread] %logger(80): %msg%n"></springProperty>
+
+    <!-- 配置控制台输出 -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${leogger.pattern.consol}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 默认的一些配置 -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+　　 <!-- 定义应用名称，区分应用 -->
+　　 <property name="APP_NAME" value="jwtsso"/>
+    <!-- 定义日志文件的输出路径 -->
+    <property name="LOG_PATH" value="logs/${APP_NAME}"/>
+    <!-- 定义日志文件名称和路径 -->
+    <property name="LOG_FILE" value="${LOG_PATH}/debug.log"/>
+
+    <!-- 将日志滚动输出到application.log文件中 -->
+    <appender name="APPLICATION"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 输出文件目的地 -->
+        <file>${LOG_FILE}</file>
+        <encoder>
+            <!-- 使用默认的输出格式打印 -->
+            <pattern>%date [%thread] [%X{transactionId:-}] %-5level [%logger{50}] %file:%line - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <!-- 设置 RollingPolicy 属性，用于配置文件大小限制，保留天数、文件名格式 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 文件命名格式 -->
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- 文件保留最大天数 -->
+            <maxHistory>7</maxHistory>
+            <!-- 文件大小限制 -->
+            <maxFileSize>50MB</maxFileSize>
+            <!-- 文件总大小 -->
+            <totalSizeCap>500MB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+
+    <!-- 配置输出级别，加入输出方式 -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <!-- 加入APPLICATION输出 -->
+        <appender-ref ref="APPLICATION"/>
+    </root>
+
+    <logger name="com.sso" level="trace"/>
+
+</configuration>
