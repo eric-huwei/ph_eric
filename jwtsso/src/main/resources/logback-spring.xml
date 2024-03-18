@@ -8,58 +8,104 @@
     <springproperty scope="context" name="file.max.size" source="logging.file.max.size" defaultvalue="512"></springproperty>
     <springProperty scope="context" name="logger.application.name" source="spring.application.name" defaultValue="spring"></springProperty>
 
-    <springProperty scope="context" name="leogger.pattern.consol" source="logging.pattern.console" defaultValue="%date{ISO8601} [%level] [${logger.aplication.name:-}] [%X{PtxId},%X{PspanId}] [%X{Corp:-}] %X{CatId:-} %X{Rfield:-} --- [%thread] %logger(80): %msg%n"></springProperty>
+    <springProperty scope="context" name="logger.pattern.console" source="logging.pattern.console"
+                    defaultValue="%date{ISO8601} [%level] [${logger.application.name:-}] [%X{PtxId},%X{PspanId}] [%X{Corp:-}] %X{CatId:-} %X{Rfield:-} --- [%thread] %logger(80): %msg%n"></springProperty>
 
-    <springProperty scope="context" name="logger.pattern.file" source="logging.pattern.file" defaultValue="%date{ISO8601} [%level] [${logger.aplication.name:-}] [%X{PtxId},%X{PspanId}] [%X{Corp:-}] %X{CatId:-} %X{Rfield:-} --- [%thread] %logger(80): %msg%n"></springProperty>
+    <springProperty scope="context" name="logger.pattern.file" source="logging.pattern.file"
+                    defaultValue="%date{ISO8601} [%level] [${logger.application.name:-}] [%X{PtxId},%X{PspanId}] [%X{Corp:-}] %X{CatId:-} %X{Rfield:-} --- [%thread] %logger(80): %msg%n"></springProperty>
 
     <!-- 配置控制台输出 -->
-    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>${leogger.pattern.consol}</pattern>
+    <appender name="ConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 日志文档输出格式 -->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!-- 指定日志格式 -->
+            <pattern>${logger.pattern.console}</pattern>
         </encoder>
     </appender>
 
-    <!-- 默认的一些配置 -->
+    <appender name="FileLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <file>${logger.path}/app.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${logger.path}/%d(yyyy-M-dd}/app.%i.log</FileNamePattern>
+            <!--日志文件保留天数-->
+            <MaxHistory>${file.retain.day}</MaxHistory>
+            <!--日志文件最大的大小-->
+            <maxFileSize>${file.max.size}MB</maxFileSize>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${logger.pattern.file}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_ASYNC" class="ch.gos.logback.classic.AsyncAppender">
+        <discardingThreshold>20</discardingThreshold>
+        <queueSize>2048</queueSize>
+        <includeCallerData>true</includeCallerData>
+        <neverBlock>true</neverBlock>
+        <maxFlushTime>10000</maxFlushTime>
+        <appender-ref ref="FileLog"/>
+    </appender>
+
+    <appender name="STDOUT" class="ch.gos.logback.core.ConsoleAppender">
+        <layout class="ch.gos.logback.classic.PatternLayout">
+            <Pattern>%d{HH:mm}%-5level%logger{36}-[TxId:%X{PtxId},SpanId:%X{PspanId}]%msg%n</Pattern>
+        </layout>
+    </appender>
+    <!--日志输出级别 -->
+    <root level="${logger.level}">
+        <appender-ref ref="ConsoleAppender"/>
+        <appender-ref ref="FILE ASYNC"/>
+    </root>
+
+    <logger name="com.paic.ph.phecda" level="warn">
+        <appender-ref ref="ConsoleAppender"/>
+        <appender-ref ref="FILE ASYNC"/>
+    </logger>
+
+</configuration>
+
+
+<!--&lt;!&ndash; 默认的一些配置 &ndash;&gt;
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
 
-　　 <!-- 定义应用名称，区分应用 -->
-　　 <property name="APP_NAME" value="jwtsso"/>
-    <!-- 定义日志文件的输出路径 -->
+    　　 &lt;!&ndash; 定义应用名称，区分应用 &ndash;&gt;
+    　　 <property name="APP_NAME" value="jwtsso"/>
+    &lt;!&ndash; 定义日志文件的输出路径 &ndash;&gt;
     <property name="LOG_PATH" value="logs/${APP_NAME}"/>
-    <!-- 定义日志文件名称和路径 -->
+    &lt;!&ndash; 定义日志文件名称和路径 &ndash;&gt;
     <property name="LOG_FILE" value="${LOG_PATH}/debug.log"/>
 
-    <!-- 将日志滚动输出到application.log文件中 -->
+    &lt;!&ndash; 将日志滚动输出到application.log文件中 &ndash;&gt;
     <appender name="APPLICATION"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!-- 输出文件目的地 -->
+        &lt;!&ndash; 输出文件目的地 &ndash;&gt;
         <file>${LOG_FILE}</file>
         <encoder>
-            <!-- 使用默认的输出格式打印 -->
+            &lt;!&ndash; 使用默认的输出格式打印 &ndash;&gt;
             <pattern>%date [%thread] [%X{transactionId:-}] %-5level [%logger{50}] %file:%line - %msg%n</pattern>
             <charset>UTF-8</charset>
         </encoder>
-        <!-- 设置 RollingPolicy 属性，用于配置文件大小限制，保留天数、文件名格式 -->
+        &lt;!&ndash; 设置 RollingPolicy 属性，用于配置文件大小限制，保留天数、文件名格式 &ndash;&gt;
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <!-- 文件命名格式 -->
+            &lt;!&ndash; 文件命名格式 &ndash;&gt;
             <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <!-- 文件保留最大天数 -->
+            &lt;!&ndash; 文件保留最大天数 &ndash;&gt;
             <maxHistory>7</maxHistory>
-            <!-- 文件大小限制 -->
+            &lt;!&ndash; 文件大小限制 &ndash;&gt;
             <maxFileSize>50MB</maxFileSize>
-            <!-- 文件总大小 -->
+            &lt;!&ndash; 文件总大小 &ndash;&gt;
             <totalSizeCap>500MB</totalSizeCap>
         </rollingPolicy>
     </appender>
 
 
-    <!-- 配置输出级别，加入输出方式 -->
+    &lt;!&ndash; 配置输出级别，加入输出方式 &ndash;&gt;
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
-        <!-- 加入APPLICATION输出 -->
+        &lt;!&ndash; 加入APPLICATION输出 &ndash;&gt;
         <appender-ref ref="APPLICATION"/>
     </root>
 
-    <logger name="com.sso" level="trace"/>
-
-</configuration>
+    <logger name="com.sso" level="trace"/>-->
