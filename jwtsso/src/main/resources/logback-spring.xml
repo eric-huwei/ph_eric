@@ -8,20 +8,11 @@
     <springProperty scope="context" name="logPath" source="logging.path" defaultValue="${springAppName}"/>
     <property name="LOG_FILE" value="logs/${springAppName}/debug.log"/>
 
-
-    <!-- 彩色日志依赖的渲染类 -->
-    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
-    <conversionRule conversionWord="wex"
-                    converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
-    <conversionRule conversionWord="wEx"
-                    converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
-
     <!-- 彩色日志格式 -->
     <property name="CONSOLE_LOG_PATTERN"
-              value="${CONSOLE_LOG_PATTERN:-%date{ISO8601} [%level] %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
-    <!--value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} [%level] [${springAppName:-}] [%X{PtxId},%X{PspanId}] [%X{Corp:-}] %X{CatId:-} %X{Rfield:-} -&#45;&#45; [%thread] %logger{80}: %msg%n"/>-->
+              value="%highlight(%date{yyyy-MM-dd HH:mm:ss.SSS}) %yellow([%level]) %clr(${PID:- }){magenta} %clr(---) %cyan([%thread]) %green(%logger{80}): %blue(%msg%n)"/>
 
-    <!-- 控制台 -->a
+    <!-- 控制台 -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>${CONSOLE_LOG_PATTERN}</pattern>
