@@ -1,4 +1,4 @@
-package com.sso.config;
+package com.sso.common.config;
 
 import com.sso.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
