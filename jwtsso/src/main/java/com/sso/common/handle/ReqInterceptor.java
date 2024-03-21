@@ -23,7 +23,7 @@ public class ReqInterceptor extends HandlerInterceptorAdapter {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         log.info("Interceptor postHandler method is running !");
-//        super.postHandle(request, response, handler, modelAndView);
+        super.postHandle(request, response, handler, modelAndView);
     }
 
     @Override

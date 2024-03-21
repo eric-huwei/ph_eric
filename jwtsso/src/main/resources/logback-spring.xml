@@ -9,6 +9,7 @@
     <property name="LOG_FILE" value="logs/${springAppName}/debug.log"/>
 
     <!-- 彩色日志格式 -->
+    <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
     <property name="CONSOLE_LOG_PATTERN"
               value="%highlight(%date{yyyy-MM-dd HH:mm:ss.SSS}) %yellow([%level]) %clr(${PID:- }){magenta} %clr(---) %cyan([%thread]) %green(%logger{80}): %blue(%msg%n)"/>
 
