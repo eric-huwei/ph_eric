@@ -25,12 +25,8 @@ public class IvrHeaderFilter implements Filter {
 //                }
             }
         }
-//        if(requestWrapper == null) {
-//        	//防止流读取一次就没有了,将流传递下去
-//            filterChain.doFilter(servletRequest, servletResponse);
-//        } else {
-//            filterChain.doFilter(requestWrapper, servletResponse);
-//        }
+        	//防止流读取一次就没有了,将流传递下去
+            filterChain.doFilter(servletRequest, servletResponse);
     }
 
 
