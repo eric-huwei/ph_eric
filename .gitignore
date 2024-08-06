@@ -1,4 +1,4 @@
 .idea/
 *.class
 target/
-/logs/jwtsso/debug.*
+/logs
