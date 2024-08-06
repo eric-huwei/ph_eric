@@ -9,9 +9,9 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>rpc</module>
-        <module>common-sso</module>
-        <module>leet-code</module>
+        <module>eric-rpc</module>
+        <module>eric-ssm</module>
+        <module>eric-algorithm</module>
     </modules>
 
     <parent>
