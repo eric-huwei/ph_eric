@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ReqInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-//        log.info("Interceptor preHandler method is running !");
+        log.info("Interceptor preHandler method is running !");
         return super.preHandle(request, response, handler);
     }
 
