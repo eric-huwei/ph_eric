@@ -12,7 +12,6 @@
         <module>eric-rpc</module>
         <module>eric-ssm</module>
         <module>eric-algorithm</module>
-        <module>eric-flowable</module>
     </modules>
 
     <parent>
