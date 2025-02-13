@@ -1,9 +1,11 @@
 package com.sso.common.handle;
 
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import static com.sso.common.util.Constants.MDC_TRACE_ID_KEY;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ReqInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        log.info("Interceptor preHandler method is running !");
+        MDC.put(MDC_TRACE_ID_KEY, "TraceId_20250208_");
         return super.preHandle(request, response, handler);
     }
 
@@ -28,7 +30,7 @@ public class ReqInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        log.info("Interceptor afterCompletion method is running !");
+        MDC.remove(MDC_TRACE_ID_KEY);
         super.afterCompletion(request, response, handler, ex);
     }
 
