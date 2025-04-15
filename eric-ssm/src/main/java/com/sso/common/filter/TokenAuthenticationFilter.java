@@ -1,4 +1,4 @@
-//package com.eric.core.sercurity;
+//package com.sso.common.filter;
 //
 //import lombok.RequiredArgsConstructor;
 //import org.springframework.boot.autoconfigure.security.SecurityProperties;

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.*;
 
@@ -32,7 +31,7 @@ public class DictionaryController {
     }
 
     @RequestMapping("export")
-    public void export(HttpServletResponse response) throws IOException {
+    public void export() throws IOException {
         List<ExportPO> list = new ArrayList<>();
         ExportPO po = new ExportPO(1, "eric", "test");
         list.add(po);
