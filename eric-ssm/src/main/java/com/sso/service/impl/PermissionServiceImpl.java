@@ -1,11 +1,11 @@
 package com.sso.service.impl;
 
-import com.sso.entity.SysPermission;
-import com.sso.entity.SysRolePermission;
-import com.sso.entity.SysUserRole;
 import com.sso.repository.SysPermissionRepository;
 import com.sso.repository.SysRolePermissionRepository;
 import com.sso.repository.SysUserRoleRepository;
+import com.sso.entity.SysPermission;
+import com.sso.entity.SysRolePermission;
+import com.sso.entity.SysUserRole;
 import com.sso.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

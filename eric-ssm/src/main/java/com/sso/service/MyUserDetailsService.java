@@ -1,9 +1,9 @@
 package com.sso.service;
 
 import com.alibaba.fastjson.JSON;
-import com.sso.domain.MyUser;
 import com.sso.entity.SysPermission;
 import com.sso.entity.SysUser;
+import com.sso.domain.MyUser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

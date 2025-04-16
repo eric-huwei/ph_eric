@@ -1,8 +1,8 @@
 package com.sso.service.impl;
 
-import com.sso.entity.SysUser;
 import com.sso.repository.SysUserRepository;
 import com.sso.service.UserService;
+import com.sso.entity.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +19,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public SysUser getByUsername(String username) {
-        return sysUserRepository.findByUsername(username);
+        return null;//sysUserRepository.findByUsername(username);
     }
 }
