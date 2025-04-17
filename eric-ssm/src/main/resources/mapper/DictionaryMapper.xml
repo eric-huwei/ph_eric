@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.eric.mapper.DictionaryMapper">
-    <resultMap id="DictionaryResultMap" type="com.eric.entity.Dictionary">
+<mapper namespace="mapper.com.eric.DictionaryMapper">
+    <resultMap id="DictionaryResultMap" type="entity.com.eric.Dictionary">
         <result column="typeId" jdbcType="VARCHAR" property="typeId" />
         <result column="typeName" jdbcType="VARCHAR" property="typeName" />
         <result column="parentType" jdbcType="VARCHAR" property="parentType" />
