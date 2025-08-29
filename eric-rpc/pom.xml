@@ -20,6 +20,7 @@
     <properties>
         <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
         <dubbo.version>2.7.7</dubbo.version>
+        <java.version>8</java.version>
     </properties>
 
     <dependencyManagement>

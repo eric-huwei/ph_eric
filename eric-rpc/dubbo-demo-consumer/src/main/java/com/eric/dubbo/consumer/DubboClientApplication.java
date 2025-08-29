@@ -28,7 +28,7 @@ public class DubboClientApplication {
         SpringApplication.run(DubboClientApplication.class);
     }
 
-    /*@Bean
+    @Bean
     public ApplicationRunner runner() {
         return args -> {
             User user = userService.finById(1);
@@ -37,5 +37,5 @@ public class DubboClientApplication {
             Order order = orderService.findOrderById(1);
             System.out.println(String.format("find order name = %s, amount = %f", order.getName(), order.getAmout()));
         };
-    }*/
+    }
 }
