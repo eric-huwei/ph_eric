@@ -12,6 +12,8 @@ import java.util.List;
 @Data
 public class RadarDto {
 
+    private String authorization;
+
     private String logRuleConfigId;
 
     private String catalogId;

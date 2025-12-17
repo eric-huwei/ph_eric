@@ -2,6 +2,7 @@ package com.sso.common.thread;
 
 import cn.hutool.extra.spring.SpringUtil;
 import com.sso.common.util.Constants;
+import com.sso.entity.CallEntity;
 import com.sso.service.Processor;
 import com.sso.vo.SceLogDto;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +17,7 @@ import java.util.concurrent.Future;
 
 @Service
 public class ConcurrentExcutor {
-    public void execute(String beanId, CountDownLatch doneSignal, SceLogDto sceLogDto, List<Future<String>> futures) {
+    public void execute(String beanId, CountDownLatch doneSignal, SceLogDto sceLogDto, List<Future<List<CallEntity.CallLogList>>> futures) {
         ExecutorService executorService = WorkExecutorFactory.getWorkExecutor(Constants.RADAR_EXECUTOR);
         if (null == executorService) {
             throw new IllegalArgumentException("指定的工作执行队列不存在!");
@@ -40,7 +41,7 @@ class Executor implements Callable {
     }
 
     @Override
-    public String call() {
+    public List<CallEntity.CallLogList> call() {
         try {
             Processor processor = SpringUtil.getBean(beanId);
             return processor.processor(sceLogDto);
